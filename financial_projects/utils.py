@@ -14,7 +14,6 @@ def calc_interest(本金,还钱总数,周期数,err_rate=1e-6):
 	lo, hi = 0.0, 100.0
 	while abs(hi - lo) > err_rate:
 		mid = (lo + hi) / 2.0
-		print(lo,mid,hi-lo)
 		err = get_err(本金, mid)
 		if err > 0:
 			hi = mid

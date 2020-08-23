@@ -1,5 +1,3 @@
-#TODO: 29.4, 107, 7 took too long
-
 def calc_interest(本金,还钱总数,周期数,err_rate=1e-6):
 	# 误差在本金*err_rate之内
 	本额等息 = 还钱总数 / 周期数
@@ -16,13 +14,12 @@ def calc_interest(本金,还钱总数,周期数,err_rate=1e-6):
 	lo, hi = 0.0, 100.0
 	while abs(hi - lo) > err_rate:
 		mid = (lo + hi) / 2.0
-		# print(lo,mid,hi)
+		print(lo,mid,hi-lo)
 		err = get_err(本金, mid)
-		if abs(err) > err_rate:
-			if err > 0:
-				hi = mid
-			else:
-				lo = mid
+		if err > 0:
+			hi = mid
+		else:
+			lo = mid
 	return lo
 
 	#calc_interset(45,107,7)
